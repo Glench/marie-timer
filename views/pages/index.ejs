@@ -35,7 +35,7 @@
 
   <script>
 
-    var ws = new WebSocket("ws://marie-timer.herokuapp.com:40510");
+    var ws = new WebSocket("wss://marie-timer.herokuapp.com:40510");
     ws.onmessage= function(data) {
       if (!data.data) {
         alert('wtf?')
