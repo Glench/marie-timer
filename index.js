@@ -1,4 +1,5 @@
 const express = require('express')
+const http = require('http')
 const path = require('path')
 const PORT = process.env.PORT || 5000
 
@@ -22,10 +23,11 @@ const app = express()
           client.send(recorded_time);
        });
   })
-  .listen(PORT, () => console.log(`Listening on ${ PORT }`))
 
+var server = http.createServer(app)
+server.listen(PORT)
 
-const wss = new ws.Server({port: 40510});
+const wss = new ws.Server({server: server});
 
 wss.on('connection', function(ws, req) {
     // on connect, send the meeting time
