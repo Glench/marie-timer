@@ -54,7 +54,6 @@
 
         var hour = $('input[name="hour"]').val();
         var minute = $('input[name="minute"]').val();
-      console.log(hour, minute)
         var time = hour+':'+minute;
         $.post('/set-time', {time: time}).done(function() {
           $('.error').hide();
